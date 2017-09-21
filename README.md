@@ -1,4 +1,4 @@
-# Crime-Forecasting-in-Portland
+# Crime-Forecasting-in-Portland(!!!should be completed by the end of 9/21/2017)
 A project of Data Science course in 2016Fall. The idea was originally from the [Real-Time Crime Forecasting Challenge](https://nij.gov/funding/Pages/fy16-crime-forecasting-challenge.aspx).
 ## Table of Contents
 * [Introduction](#intro)
