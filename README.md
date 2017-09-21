@@ -7,3 +7,7 @@ A project of Data Science course.
 * [Credits](#credits)
 * [Contact](#contact)
 ## <a name="intro">Introduction</a>
+## <a name="implem">Implementation</a>
+## <a name="result">Results</a>
+## <a name="credits">Credits</a>
+## <a name="contact">Contact</a>
