@@ -20,9 +20,10 @@ The algorithms we applied are **Linear Regression**, self-defined Proportion Alg
 them can give a good overall accuracy. **Python** and **QGIS** are the tools we use to clean, prepare, visualize, predict, and analyze our data as well as the result. The data we downloaded from the [NIJ website](https://nij.gov/funding/Pages/fy16-crime-forecasting-challenge-document.aspx#data) includes eight zipfiles of crime records which start from March 2012 to October 2016 and one zipfile of Portland district information.
 
 * Data Cleaning
-  QGIS is a Free and Open Source Geographic Information System and is widely used to present geographic data. That's exactly what we need.  The version of QGIS we used is [QGIS 2.16.3](https://mega.nz/#!93ZH0JLC!yRSVekUVllTlCnNP8F2yB4RibjHLRxKW2LfBpUaR0GI), [their website](http://www.qgis.org/en/site/) has the lastest version. There are filters in QGIS that we can use to only keep the columns we are interested in. After loading the map in QGIS, the records which are presented as dots can be removed in QGIS manually. 
+  QGIS is a Free and Open Source Geographic Information System and is widely used to present geographic data. That's exactly what we need.  The version of QGIS we used is [QGIS 2.16.3](https://mega.nz/#!93ZH0JLC!yRSVekUVllTlCnNP8F2yB4RibjHLRxKW2LfBpUaR0GI), [their website](http://www.qgis.org/en/site/) has the lastest version. There are filters in QGIS that we can use to only keep the columns we are interested in. After loading the map in QGIS, the records which are presented as dots can be removed in QGIS manually. A layer of grids is applied on to the map(11992 in total).
   
   ![image](https://user-images.githubusercontent.com/31550461/30728104-e2518cea-9f12-11e7-9113-01262b0bc550.png)
+  ![image](https://user-images.githubusercontent.com/31550461/30729360-2d213276-9f1c-11e7-92dc-e55eb82c473d.png)
   
 * Oracle VirtualBox with Ubuntu64bit
   All the data processing, analyzing is done in **Oracle VirtualBox** 5.1.14 with **Ubuntu64bit** using **ipython notebook** on a window10 64bit laptop.
@@ -50,7 +51,10 @@ for i, val in enumerate(excel_name):
       df=df.reset_index(drop=True) # drop the index of each excel file to keep the consistancy of the whole data collection
       data[val]=df
 ```
-  Notice that the excel files have beed filtered by QGIS with only CATEGORY= 'Street Crime' left.
+  Notice that the excel files have beed filtered by QGIS with only CATEGORY= 'Street Crime' left. After this step, we only have coordination information and occurance time for each street crime record.
+  
+* Data Overview  
+  Because our prediction is by month, the 'occ_date' need to be grouped by month. Besides, the coordination information which is 4 discrete number need to be transfered into which grids they belong.
   
 
 ## <a name="result">Results</a>
