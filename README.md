@@ -47,7 +47,7 @@ for i, val in enumerate(excel_name):
       del df['final_case']
       del df['wkt_geom']  
       del df['CATEGORY']
-      df=df.reset_index(drop=True)
+      df=df.reset_index(drop=True) # drop the index of each excel file to keep the consistancy of the whole data collection
       data[val]=df
 ```
   Notice that the excel files have beed filtered by QGIS with only CATEGORY= 'Street Crime' left.
