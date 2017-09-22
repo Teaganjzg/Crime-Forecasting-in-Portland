@@ -34,10 +34,10 @@ them can give a good overall accuracy. **Python** and **QGIS** are the tools we 
   
 * Data importion
   Data can be imported into ipython notebook in excel format which is the original format by import the python package **xlrd** and **panda**
-  ` import xlrd` `import panda as pd` In order to import all the excel files , a loop and some data import function of panda are needed
+  ` import xlrd` `import panda as pd` In order to import all the excel files, the datastructure is **dataframe**. a loop and some data import function of panda are needed
 ```
 excel_name=['2015_JAN01_DEC31','2016_JAN01_JUL31','2016_AUG01_AUG31_USE','2016_SEP01_SEP30','2016_OCT01_OCT31']
-data={}
+data={} #the library that contines all the dataframes which extract from excel files one by one
 for i, val in enumerate(excel_name):
       xlsx_file = pd.ExcelFile('/home/datascience/Project/street crime excel/NIJ'+val+'.xlsx')
       df = xlsx_file.parse(xlsx_file.sheet_names[0])  
@@ -47,13 +47,46 @@ for i, val in enumerate(excel_name):
       del df['final_case']
       del df['wkt_geom']  
       del df['CATEGORY']
-      df=df.reset_index(drop=True) # drop the index of each excel file to keep the consistancy of the whole data collection
+      df=df.reset_index(drop=True) #drop the index of each excel file to keep the consistancy of the whole data collection
       data[val]=df
 ```
   Notice that the excel files have beed filtered by QGIS with only CATEGORY= 'Street Crime' left. After this step, we only have coordination information and occurance time for each street crime record.
   
 * Data Overview  
-  Because our prediction is by month, the 'occ_date' need to be grouped by month. Besides, the coordination information which is 4 discrete number need to be transfered into which grids they belong.
+  1. Concatenate multiple dataframe by time into one.
+  2. Because our prediction is by month, the 'occ_date' need to be grouped by month. 
+  3. the coordination information which is 2 discrete number need to be transfered into which grids they belong.
+  4. Convert the old dataframe which is made of 'occ_data','Coordinate_X','Coordinate_Y' tuples into the new dataframe which only has 56 different colunms each represent one month and each row represent each grid.
+  5. Set the grid number as index.
+```
+df=pd.DataFrame()
+month= pd.DataFrame()
+monthly= pd.DataFrame()
+for i, val in enumerate(excel_name):  
+  df=(data[val].copy())
+  month=df.set_index('occ_date')
+  month = month.groupby(pd.TimeGrouper(freq='M')).size() 
+  month.columns=['counts']
+  monthly=pd.concat([monthly,month])     
+```
+   The packages matplotlib is required to plot the bar chart to get an intuitive overview. It is also needed to flip the pivot and deal with the date.
+```
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+```
+```
+monthly.index=monthly.index.map(lambda t: t.strftime('%Y-%m'))
+ax = monthly.plot(kind='bar', title ="STREET CRIMES counts in Portland",figsize=(10,8),legend=True, fontsize=12,)
+ax.set_xlabel("month",fontsize=8)
+ax.set_ylabel("counts",fontsize=12)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/31550461/30730199-841fc6d6-9f22-11e7-8f85-f1c5302e4f0f.png)
+```
+xlsx_file = pd.ExcelFile('/home/datascience/Project/excel/grid.xlsx')
+df_g = xlsx_file.parse(xlsx_file.sheet_names[0])
+```
+  
   
 
 ## <a name="result">Results</a>
