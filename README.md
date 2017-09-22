@@ -86,8 +86,35 @@ plt.show()
 xlsx_file = pd.ExcelFile('/home/datascience/Project/excel/grid.xlsx')
 df_g = xlsx_file.parse(xlsx_file.sheet_names[0])
 ```
-  
-  
+```
+import numpy as np
+def isNaN(num):
+    return num != num
+df_nbm = pd.DataFrame()
+for index, row in df_g.iterrows():        
+        one_g={}
+        xmin= row['xmin']
+        xmax= row['xmax']
+        ymin= row['ymin']
+        ymax= row['ymax']
+        month1= pd.DataFrame()
+        df1=pd.DataFrame()
+        df2=pd.DataFrame()
+        monthly1= pd.DataFrame()
+        for i, val in enumerate(excel_name):
+            df1=(data[val].copy())
+            df1=df1[(df1.x_coordina >= xmin) & (df1.x_coordina < xmax) & (df1.y_coordina >= ymin) & (df1.y_coordina < ymax)]
+            df2=df2.append(df1,ignore_index=True)
+        month1 = df2.set_index('occ_date')
+        month1 = month1.groupby(pd.TimeGrouper(freq='M')).size()
+        month1.index=month1.index.map(lambda t: t.strftime('%Y-%m'))
+        for i, v in month1.iteritems():     
+                      one_g[i]=v              
+        df_nbm=df_nbm.append(one_g,ignore_index=True)
+        if month1.empty:
+            df_nbm.ix[(len(df_nbm)-1)]=0
+df_nbm=df_nbm.fillna(0)               
+```  
 
 ## <a name="result">Results</a>
 
