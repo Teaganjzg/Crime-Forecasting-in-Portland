@@ -34,7 +34,7 @@ them can give a good overall accuracy. **Python** and **QGIS** are the tools we 
   
 * Data importion
   Data can be imported into ipython notebook in excel format which is the original format by import the python package **xlrd** and **panda**
-  ` <span style="color:green">import</span> xlrd` `import panda as pd` In order to import all the excel files, the datastructure is **dataframe**. a loop and some data import function of panda are needed
+  ` diff + import xlrd` `import panda as pd` In order to import all the excel files, the datastructure is **dataframe**. a loop and some data import function of panda are needed
 ```
 excel_name=['2015_JAN01_DEC31','2016_JAN01_JUL31','2016_AUG01_AUG31_USE','2016_SEP01_SEP30','2016_OCT01_OCT31']
 data={} #the library that contines all the dataframes which extract from excel files one by one
