@@ -22,7 +22,7 @@ them can give a good overall accuracy. **Python** and **QGIS** are the tools we 
 * Data Cleaning
   QGIS is a Free and Open Source Geographic Information System and is widely used to present geographic data. That's exactly what we need.  The version of QGIS we used is [QGIS 2.16.3](https://mega.nz/#!93ZH0JLC!yRSVekUVllTlCnNP8F2yB4RibjHLRxKW2LfBpUaR0GI), [their website](http://www.qgis.org/en/site/) has the lastest version. There are filters in QGIS that we can use to only keep the columns we are interested in. After loading the map in QGIS, the records which are presented as dots can be removed in QGIS manually. A layer of grids is applied on to the map(11992 in total).
   
-  ![image](https://user-images.githubusercontent.com/31550461/30728104-e2518cea-9f12-11e7-9113-01262b0bc550.png)![image](https://user-images.githubusercontent.com/31550461/30729360-2d213276-9f1c-11e7-92dc-e55eb82c473d.png)
+  ![image](https://user-images.githubusercontent.com/31550461/30728104-e2518cea-9f12-11e7-9113-01262b0bc550.png)![image](https://user-images.githubusercontent.com/31550461/30729360-2d213276-9f1c-11e7-92dc-e55eb82c473d.png = 250*)
   
 * Oracle VirtualBox with Ubuntu64bit
   All the data processing, analyzing is done in **Oracle VirtualBox** 5.1.14 with **Ubuntu64bit** using **ipython notebook** on a window10 64bit laptop.
