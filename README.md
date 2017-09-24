@@ -126,7 +126,9 @@ The df_nbm is the dataframe of the number of records of each square spot by mont
 df_nbm[4545:4555]
 ```
 The output should be like this: </br>
-<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=500>
+<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=500></br>
+* Linear Regression
+  The idea of our Linear Regression model is to apply the Linear Regression to individual sqaure spots based on the number of street crime happened in every past month with the data before January 2016 as trainnig data and the rest as testing data and improve it by adjusting the degree of linear regression functions. The degrees we tried is in the range of (0,5) which we obtained from the street crimes happended in every month for all the grids which show the overall trends. Then we compare the predicted hotspots and real hotspots by our threshold of the number of crime happened or protenially will happen in specific month to measure the accuracy of our model.
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
