@@ -127,8 +127,44 @@ df_nbm[4545:4555]
 ```
 The output should be like this: </br>
 <image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=500></br>
-* Linear Regression
-  The idea of our Linear Regression model is to apply the Linear Regression to individual sqaure spots based on the number of street crime happened in every past month with the data before January 2016 as trainnig data and the rest as testing data and improve it by adjusting the degree of linear regression functions. The degrees we tried is in the range of (0,5) which we obtained from the street crimes happended in every month for all the grids which show the overall trends. Then we compare the predicted hotspots and real hotspots by our threshold of the number of crime happened or protenially will happen in specific month to measure the accuracy of our model.
+* Linear Regression</br>
+  The idea of our Linear Regression model is to apply the Linear Regression to individual sqaure spots based on the number of street crime happened in every past month with the data before January 2016 as trainnig data and the rest as testing data and improve it by adjusting the degree of linear regression functions. The degrees we tried is in the range of (0,5). We obtained the linear regression model for each individual square spot which show the overall trends. Then we compare the predicted hotspots and real hotspots by our threshold of the number of crime happened or protenially will happen in specific month to measure the accuracy of our model.
+  Below is part of the code. The original code file can be found in this repository. Here is the [link]().
+  ```Python
+  threshold=20
+     while threshold > 3: #range to test threshold to decide which is the one we need  
+        num16hots=[]
+        for i,val in enumerate(num16notzero):
+            if val[1] > threshold:
+                num16hots.append(val)
+  x=[] # x for linear regression
+        lg=[] # contains the polyfit for each grid
+        for i in range(0,44+ii):
+           x.append(i)
+        for index, row in df_nbm.iterrows():
+           p = np.polyfit(x,row[0:(44+ii)],1)
+           lg.append(p)
+        phots=[] # contains the predict result for each grid
+        for i,val in enumerate(lg):
+           f = np.poly1d(val) 
+           phots.append([f(44+ii),Rsquare(x,df_nbm.as_matrix()[i][0:(44+ii)],f)])   
+        phots_notzero = [] #contains the grids(index, pedict result ) which predict result is not zero
+        evaR2all = 0
+        for i,val in enumerate(phots):
+            evaR2all=evaR2all+val[1]
+            if val[0] != 0:
+              phots_notzero.append([i,val[0],val[1]])
+        phots_f=[]
+        evaR2=0
+        for i,val in enumerate(phots_notzero):
+            if val[1] > threshold:
+                evaR2=evaR2+val[2]
+                phots_f.append(val)              
+        threshold=threshold-1
+        if ((len(phots_f) > 20) & (len(phots_f) <= 58) & (len(num16hots) <= 58) & (len(num16hots) > 20)) :
+            break
+  ```
+  
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
