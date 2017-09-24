@@ -125,8 +125,8 @@ The df_nbm is the dataframe of the number of records of each square spot by mont
 ``` Python
 df_nbm[4545:4555]
 ```
-The output should be like this:
-<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=400>
+The output should be like this: </br>
+<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=500>
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
