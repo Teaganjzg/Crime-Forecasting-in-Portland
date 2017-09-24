@@ -1,4 +1,4 @@
-# Crime-Forecasting-in-Portland(!!!should be completed by the end of 9/21/2017)
+# Crime-Forecasting-in-Portland
 A project of Data Science course in 2016Fall. The idea was originally from the [Real-Time Crime Forecasting Challenge](https://nij.gov/funding/Pages/fy16-crime-forecasting-challenge.aspx).
 ## Table of Contents
 * [Introduction](#intro)
@@ -168,7 +168,7 @@ The output should be like this: </br>
 ## <a name="result">Results</a>
    Here is the acccuracy of the linear Regression model.
    ![image](https://user-images.githubusercontent.com/31550461/30786620-f9c88bd8-a135-11e7-8862-3ae8cd2b551d.png)
-   The hotspots on map will be like this.
+   The hotspots on map will be like this.</br>
    <image src="https://user-images.githubusercontent.com/31550461/30786629-2017063e-a136-11e7-93f0-64ba17def1bf.png" width= 500>
 ## <a name="credits">Credits</a>
 ## <a name="contact">Contact</a>
