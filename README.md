@@ -164,8 +164,9 @@ The output should be like this: </br>
         if ((len(phots_f) > 20) & (len(phots_f) <= 58) & (len(num16hots) <= 58) & (len(num16hots) > 20)) :
             break
   ```
-    Notice that the threshold is not a fixed number. There is a outter loop (threshold reduce by 1 from 20 to 3) for testing which threshold can make the number of actual hotspots and the predicted hotspots(the square spots whose value is beyond threshold can be considered as hot spots) both in the rang of (20,58). For my consideration, it is more resonable, because if we just sign a fixed number to threshold, there is a possibility that only the number of actual hotspots is in (20,58), but the number of predicted value which can satisfy this threshold is less than 20. In that case the accuracy which is (number of validated hotspots)/(actual number of hotspots) is not realistic.
+    Notice that the threshold is not a fixed number. There is a outter loop (threshold reduce by 1 from 20 to 3) for testing which threshold can make the number of actual hotspots and the predicted hotspots(the square spots whose value is beyond threshold can be considered as hot spots) both in the rang of (20,58). For my consideration, it is more resonable, because if we just sign a fixed number to threshold, there is a possibility that only the number of actual hotspots is in (20,58), but the number of predicted value which can satisfy this threshold is less than 20. In that case the accuracy which is (number of matched hotspots)/(number of predicted hotspots) is not realistic.
 ## <a name="result">Results</a>
-
+   Here is the acccuracy of the linear Regression model.
+   ![image](https://user-images.githubusercontent.com/31550461/30786620-f9c88bd8-a135-11e7-8862-3ae8cd2b551d.png)
 ## <a name="credits">Credits</a>
 ## <a name="contact">Contact</a>
