@@ -34,7 +34,7 @@ them can give a good overall accuracy. **Python** and **QGIS** are the tools we 
   
 * Data importion
   Data can be imported into ipython notebook in excel format which is the original format by import the python package **xlrd** and **panda**
-  `Python import xlrd` `import panda as pd` In order to import all the excel files, the datastructure is **dataframe**. a loop and some data import function of panda are needed
+  `import xlrd` `import panda as pd` In order to import all the excel files, the datastructure is **dataframe**. a loop and some data import function of panda are needed
 ```Python
 excel_name=['2015_JAN01_DEC31','2016_JAN01_JUL31','2016_AUG01_AUG31_USE','2016_SEP01_SEP30','2016_OCT01_OCT31']
 data={} #the library that contines all the dataframes which extract from excel files one by one
@@ -58,7 +58,7 @@ for i, val in enumerate(excel_name):
   3. the coordination information which is 2 discrete number need to be transfered into which grids they belong.
   4. Convert the old dataframe which is made of 'occ_data','Coordinate_X','Coordinate_Y' tuples into the new dataframe which only has 56 different colunms each represent one month and each row represent each grid.
   5. Set the grid number as index.
-```
+```Python
 df=pd.DataFrame()
 month= pd.DataFrame()
 monthly= pd.DataFrame()
@@ -70,11 +70,11 @@ for i, val in enumerate(excel_name):
   monthly=pd.concat([monthly,month])     
 ```
    The packages matplotlib is required to plot the bar chart to get an intuitive overview. It is also needed to flip the pivot and deal with the date.
-```
+```Python
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 ```
-```
+```Python
 monthly.index=monthly.index.map(lambda t: t.strftime('%Y-%m'))
 ax = monthly.plot(kind='bar', title ="STREET CRIMES counts in Portland",figsize=(10,8),legend=True, fontsize=12,)
 ax.set_xlabel("month",fontsize=8)
@@ -82,11 +82,11 @@ ax.set_ylabel("counts",fontsize=12)
 plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/31550461/30730199-841fc6d6-9f22-11e7-8f85-f1c5302e4f0f.png)
-```
+```Python
 xlsx_file = pd.ExcelFile('/home/datascience/Project/excel/grid.xlsx')
 df_g = xlsx_file.parse(xlsx_file.sheet_names[0])
 ```
-```
+```Python
 import numpy as np
 def isNaN(num):
     return num != num
