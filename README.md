@@ -171,8 +171,8 @@ The output should be like this: </br>
    The hotspots on map for November2016 will be like this.</br>
    <image src="https://user-images.githubusercontent.com/31550461/30786629-2017063e-a136-11e7-93f0-64ba17def1bf.png" width= 500>
 ## <a name="credits">Credits</a>
-   **Other Team Members :** Xiaozheng He.
+   **Other Team Members :** Xiaozheng He.</br>
    All the codes uploaded in this repository are written by Zuge Jin.
 ## <a name="contact">Contact</a>
-   Name: Zuge Jin
+   Name: Zuge Jin</br>
    E-mail: jinzuge1@gmail.com
