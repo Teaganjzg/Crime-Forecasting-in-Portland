@@ -81,7 +81,7 @@ ax.set_xlabel("month",fontsize=8)
 ax.set_ylabel("counts",fontsize=12)
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/31550461/30730199-841fc6d6-9f22-11e7-8f85-f1c5302e4f0f.png)
+<image src="https://user-images.githubusercontent.com/31550461/30730199-841fc6d6-9f22-11e7-8f85-f1c5302e4f0f.png" width=500 align="center">
 ```Python
 xlsx_file = pd.ExcelFile('/home/datascience/Project/excel/grid.xlsx')
 df_g = xlsx_file.parse(xlsx_file.sheet_names[0])
