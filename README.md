@@ -118,9 +118,15 @@ for index, row in df_g.iterrows():
         df_nbm = df_nbm.append(one_g,ignore_index=True)
         if month1.empty:
             df_nbm.ix[(len(df_nbm)-1)] = 0
-df_nbm=df_nbm.fillna(0)               
+df_nbm=df_nbm.fillna(0) 
+df_nbm=df_nbm.reindex_axis(sorted(df_nbm.columns), axis=1) #rearrange by colunm names
 ```  
-
+The df_nbm is the dataframe of the number of records of each square spot by month. Since df_nbm is too large, we can select part of it to see what it looks like.
+``` Python
+df_nbm[4545:4555]
+```
+The output should be like this:
+![image](https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png | width=400)
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
