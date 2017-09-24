@@ -83,7 +83,7 @@ plt.show()
 ```
 <image src="https://user-images.githubusercontent.com/31550461/30730199-841fc6d6-9f22-11e7-8f85-f1c5302e4f0f.png" width=500 align="center">
 
-* Data Processing
+* Data Processing </br>
 This is the one of the most important part because that's how we relate the crime records to all the square spots which are the candidate hotspots. 
 First of all, import the grid layer excel file which contains the coordinary information of all the square spots.
 
@@ -126,7 +126,7 @@ The df_nbm is the dataframe of the number of records of each square spot by mont
 df_nbm[4545:4555]
 ```
 The output should be like this:
-<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width="400")
+<image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=400>
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
