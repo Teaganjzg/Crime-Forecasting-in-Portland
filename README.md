@@ -128,8 +128,8 @@ df_nbm[4545:4555]
 The output should be like this: </br>
 <image src="https://user-images.githubusercontent.com/31550461/30778550-df4fa890-a095-11e7-8581-015d6c147c45.png" width=500></br>
 * Linear Regression</br>
-  The idea of our Linear Regression model is to apply the Linear Regression to individual sqaure spots based on the number of street crime happened in every past month with the data before January 2016 as trainnig data and the rest as testing data and improve it by adjusting the degree of linear regression functions. The degrees we tried is in the range of (0,5). We obtained the linear regression model for each individual square spot which show the overall trends. Then we compare the predicted hotspots and real hotspots by our threshold of the number of crime happened or protenially will happen in specific month to measure the accuracy of our model.
-  Below is part of the code. The original code file can be found in this repository. Here is the [link]().
+  The idea of our Linear Regression model is to apply the Linear Regression to individual sqaure spots based on the number of street crime happened in every past month with the data before January 2016 as trainnig data and the rest as testing data and improve it by adjusting the degree **(order of polynomial)** of linear regression functions. The degrees we tried is in the range of (0,5). We obtained the linear regression model for each individual square spot which show the overall trends. Then we compare the predicted hotspots and real hotspots by our threshold of the number of crime happened or protenially will happen in specific month to measure the accuracy of our model.
+  Below is part of the code with degree = 1. The original code file can be found in this repository. Here is the [link]().
   ```Python
   threshold=20
      while threshold > 3: #range to test threshold to decide which is the one we need  
@@ -142,7 +142,7 @@ The output should be like this: </br>
         for i in range(0,44+ii):
            x.append(i)
         for index, row in df_nbm.iterrows():
-           p = np.polyfit(x,row[0:(44+ii)],1)
+           p = np.polyfit(x,row[0:(44+ii)],1) # degree can be set by the lase attribute in ()
            lg.append(p)
         phots=[] # contains the predict result for each grid
         for i,val in enumerate(lg):
@@ -164,7 +164,7 @@ The output should be like this: </br>
         if ((len(phots_f) > 20) & (len(phots_f) <= 58) & (len(num16hots) <= 58) & (len(num16hots) > 20)) :
             break
   ```
-  
+    Notice that the threshold is not a fixed number. There is a outter loop (threshold reduce by 1 from 20 to 3) for testing which threshold can make the number of actual hotspots and the predicted hotspots(the square spots whose value is beyond threshold can be considered as hot spots) both in the rang of (20,58). For my consideration, it is more resonable, because if we just sign a fixed number to threshold, there is a possibility that only the number of actual hotspots is in (20,58), but the number of predicted value which can satisfy this threshold is less than 20. In that case the accuracy which is (number of validated hotspots)/(actual number of hotspots) is not realistic.
 ## <a name="result">Results</a>
 
 ## <a name="credits">Credits</a>
